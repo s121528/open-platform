@@ -1,0 +1,53 @@
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    username: root
+    password: passw0rd
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/ssh
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    open-in-view: false
+
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+
+  resources:
+    static-locations: classpath:/static/,classpath:/views/,file:H:/,file:/opt/www
+
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+      enabled: true
+
+server:
+  port: 80
+  servlet:
+    context-path: /open-generator
+
+  tomcat:
+    uri-encoding: utf-8
+    max-threads: 1000
+    min-spare-threads: 30
+
+mybatis:
+  mapperLocations: classpath:mapper/**/*.xml
+
+
+pagehelper:
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+
+
+#\u6307\u5B9A\u6570\u636E\u5E93\uFF0C\u53EF\u9009\u503C\u6709\u3010mysql\u3001oracle\u3001sqlserver\u3001postgresql\u3011
+renren:
+  database: mysql
