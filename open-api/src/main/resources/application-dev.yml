@@ -1,0 +1,7 @@
+# 开发环境
+spring:
+  datasource:
+    username: root
+    password: passw0rd
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/ssh

@@ -41,13 +41,11 @@ server:
 mybatis:
   mapperLocations: classpath:mapper/**/*.xml
 
-
 pagehelper:
   reasonable: true
   supportMethodsArguments: true
   params: count=countSql
 
-
-#\u6307\u5B9A\u6570\u636E\u5E93\uFF0C\u53EF\u9009\u503C\u6709\u3010mysql\u3001oracle\u3001sqlserver\u3001postgresql\u3011
+#指定数据库，可选值有【mysql、oracle、sqlserver、postgresql】
 renren:
   database: mysql

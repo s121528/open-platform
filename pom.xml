@@ -35,6 +35,7 @@
         <commons.lang.version>2.6</commons.lang.version>
         <commons.io.version>2.5</commons.io.version>
         <commons.configuration.version>1.10</commons.configuration.version>
+        <commons.codec.version>1.10</commons.codec.version>
         <velocity.version>1.7</velocity.version>
         <mybatisplus.version>3.0.7.1</mybatisplus.version>
         <pagehelper.spring.boot.version>1.2.5</pagehelper.spring.boot.version>
@@ -50,18 +51,37 @@
         <module>open-generator</module>
         <!-- 外部接口 -->
         <module>open-api</module>
+        <!-- 多数据源操作 -->
+        <module>open-datasource</module>
     </modules>
 
     <!-- 通用依赖 -->
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -74,9 +94,12 @@
             <version>${hutool.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-configuration-processor</artifactId>
-            <optional>true</optional>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
         </dependency>
     </dependencies>
 
@@ -146,6 +169,11 @@
                 <version>${commons.configuration.version}</version>
             </dependency>
             <dependency>
+                <groupId>commons-codec</groupId>
+                <artifactId>commons-codec</artifactId>
+                <version>${commons.codec.version}</version>
+            </dependency>
+            <dependency>
                 <artifactId>velocity</artifactId>
                 <groupId>org.apache.velocity</groupId>
                 <version>${velocity.version}</version>
@@ -165,6 +193,32 @@
                 <groupId>com.github.pagehelper</groupId>
                 <artifactId>pagehelper-spring-boot-starter</artifactId>
                 <version>${pagehelper.spring.boot.version}</version>
+            </dependency>
+            <!-- 本机模块 -->
+            <dependency>
+                <groupId>com.io</groupId>
+                <artifactId>open-common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.io</groupId>
+                <artifactId>open-generator</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.io</groupId>
+                <artifactId>open-admin</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.io</groupId>
+                <artifactId>open-api</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.io</groupId>
+                <artifactId>open-datasource</artifactId>
+                <version>${project.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -194,14 +248,26 @@
         </pluginRepository>
     </pluginRepositories>
 
-    <!-- 打包 -->
+    <!-- 项目构建 -->
     <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
+        <pluginManagement>
+            <plugins>
+                <!-- spring boot的maven插件 -->
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                </plugin>
+                <!-- 编译级别 -->
+                <plugin>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <configuration>
+                        <target>${java.version}</target>
+                        <source>${java.version}</source>
+                        <encoding>UTF-8</encoding>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
     </build>
 
 </project>

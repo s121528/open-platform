@@ -1,0 +1,40 @@
+spring:
+  profiles:
+    active: dev
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    open-in-view: false
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+      enabled: true
+
+server:
+  port: 9091
+  servlet:
+    context-path: /admin
+  tomcat:
+    uri-encoding: utf-8
+    max-threads: 1000
+    min-spare-threads: 30
+
+jasypt:
+  encryptor:
+    password: guodd
+
+secret:
+  key: guodd
+
+logging:
+  config: classpath:logback-spring.xml
+  level:
+    com.io: 'info'
