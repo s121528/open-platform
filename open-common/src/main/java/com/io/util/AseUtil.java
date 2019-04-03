@@ -89,4 +89,8 @@ public class AseUtil {
         }
         return null;
     }
+
+    public static void main(String[] args) {
+        System.out.println(AseUtil.encrypt("aa", "aaa"));
+    }
 }
