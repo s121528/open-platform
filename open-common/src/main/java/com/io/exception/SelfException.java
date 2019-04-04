@@ -20,6 +20,11 @@ public class SelfException extends RuntimeException {
         this.code = apiResultEnum.getCode();
     }
 
+    public SelfException(Integer code, String message) {
+        super(message);
+        this.code = code;
+    }
+
     public Integer getCode() {
         return code;
     }

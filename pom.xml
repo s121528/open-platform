@@ -54,7 +54,10 @@
         <module>open-api</module>
         <!-- 多数据源操作 -->
         <module>open-datasource</module>
+        <!-- ali的配置中心和注册中心 -->
         <module>open-nacos</module>
+        <!-- 开放SDK -->
+        <module>open-sdk</module>
     </modules>
 
     <!-- 通用依赖 -->
@@ -245,7 +248,12 @@
                 <artifactId>open-datasource</artifactId>
                 <version>${project.version}</version>
             </dependency>
-
+            <dependency>
+                <groupId>com.io</groupId>
+                <artifactId>open-sdk</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <!-- 服务管理 -->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
