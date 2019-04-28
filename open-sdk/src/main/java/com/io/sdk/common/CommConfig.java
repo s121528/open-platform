@@ -20,29 +20,6 @@ public class CommConfig {
     private String authStr;
     private static CommConfig instance;
 
-    public static CommConfig getInstance() {
-        if (instance != null) {
-            return instance;
-        } else {
-            instance = new CommConfig();
-            try {
-                Setting set = new Setting("sdk.properties");
-                if (!StringUtils.isEmpty(set.get("serviceURL"))) {
-                    instance.serviceURL = set.get("serviceURL").trim();
-                }
-                if (!StringUtils.isEmpty(set.get("authStr"))) {
-                    instance.authStr = set.get("authStr").trim();
-                }
-                if (!StringUtils.isEmpty(set.get("tempPath"))) {
-                    instance.tempPath = set.get("tempPath").trim();
-                }
-            } catch (NoResourceException e) {
-                throw new SelfException(302, "配置文件不存在！");
-            }
-        }
-        return instance;
-    }
-
     public String getServiceURL() {
         return serviceURL;
     }
@@ -59,7 +36,7 @@ public class CommConfig {
         this.tempPath = tempPath;
     }
 
-    public String getAuthStr() {
+    String getAuthStr() {
         return authStr;
     }
 
@@ -67,7 +44,26 @@ public class CommConfig {
         this.authStr = authStr;
     }
 
-    public static void setInstance(CommConfig instance) {
-        CommConfig.instance = instance;
+    static CommConfig getInstance() {
+        if (instance != null) {
+            return instance;
+        } else {
+            instance = new CommConfig();
+            try {
+                Setting set = new Setting("sdk.properties");
+                if (!StringUtils.isEmpty(set.get("serviceURL"))) {
+                    instance.serviceURL = set.get("serviceURL").trim();
+                }
+                if (!StringUtils.isEmpty(set.get("authStr"))) {
+                    instance.authStr = set.get("authStr").trim();
+                }
+                if (!StringUtils.isEmpty(set.get("tempPath"))) {
+                    instance.tempPath = set.get("tempPath").trim();
+                }
+            } catch (NoResourceException e) {
+                throw new SelfException(302, "sdk.properties配置文件不存在或文件格式不正确！");
+            }
+        }
+        return instance;
     }
 }

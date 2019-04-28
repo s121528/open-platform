@@ -58,6 +58,7 @@
         <module>open-nacos</module>
         <!-- 开放SDK -->
         <module>open-sdk</module>
+        <module>demo</module>
     </modules>
 
     <!-- 通用依赖 -->
