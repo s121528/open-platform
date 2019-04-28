@@ -11,4 +11,14 @@
 
     <artifactId>open-nacos</artifactId>
 
+    <build>
+        <finalName>${project.artifactId}-20190428</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>

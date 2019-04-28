@@ -45,5 +45,7 @@
             <version>2.9.0.pr3</version>
         </dependency>
     </dependencies>
-    
+    <build>
+        <finalName>${project.artifactId}-20190428</finalName>
+    </build>
 </project>

@@ -25,9 +25,8 @@
             <artifactId>commons-codec</artifactId>
         </dependency>
     </dependencies>
-
     <build>
-        <finalName>open-api</finalName>
+        <finalName>${project.artifactId}-20190428</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
