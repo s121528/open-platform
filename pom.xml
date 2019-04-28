@@ -18,6 +18,25 @@
     <packaging>pom</packaging>
     <description>单机项目后台整合</description>
 
+    <!-- 项目模块 -->
+    <modules>
+        <!-- 基础模块 -->
+        <module>open-common</module>
+        <!-- 后台管理 -->
+        <module>open-admin</module>
+        <!-- 代码生成 -->
+        <module>open-generator</module>
+        <!-- 外部接口 -->
+        <module>open-api</module>
+        <!-- 多数据源操作 -->
+        <module>open-datasource</module>
+        <!-- ali的配置中心和注册中心 -->
+        <module>open-nacos</module>
+        <!-- 开放SDK -->
+        <module>open-sdk</module>
+        <module>demo</module>
+    </modules>
+
     <!-- 版本统一管理 -->
     <properties>
         <java.version>1.8</java.version>
@@ -41,25 +60,6 @@
         <pagehelper.spring.boot.version>1.2.5</pagehelper.spring.boot.version>
         <nacos.version>0.2.1.RELEASE</nacos.version>
     </properties>
-
-    <!-- 项目模块 -->
-    <modules>
-        <!-- 基础模块 -->
-        <module>open-common</module>
-        <!-- 后台管理 -->
-        <module>open-admin</module>
-        <!-- 代码生成 -->
-        <module>open-generator</module>
-        <!-- 外部接口 -->
-        <module>open-api</module>
-        <!-- 多数据源操作 -->
-        <module>open-datasource</module>
-        <!-- ali的配置中心和注册中心 -->
-        <module>open-nacos</module>
-        <!-- 开放SDK -->
-        <module>open-sdk</module>
-        <module>demo</module>
-    </modules>
 
     <!-- 通用依赖 -->
     <dependencies>
