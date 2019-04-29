@@ -35,12 +35,12 @@ public class DemoController {
         invoiceInfoReqVo.setCompanyNum("38");
         String s3 = DESUtil.encode(JSONUtil.toJsonStr(invoiceInfoReqVo));
         RequestVo requestVo = new RequestVo();
-        requestVo.setCompanyCode("test");
+        requestVo.setCompanyCode("01201901220939520001");
         requestVo.setRequestType("1");
         requestVo.setContent(s3);
-        String postForObject = mkRestTemplate.postForObject("http://42.236.7.2:8108/rms/invoice/invoiceInfos", requestVo, String.class);
+        String postForObject = mkRestTemplate.postForObject("http://127.0.0.1:8108/rms/invoice/invoiceInfos", requestVo, String.class);
         JSONObject jsonObject = JSONUtil.parseObj(postForObject);
-        String message = DESUtil.decode(JSONUtil.toJsonStr(jsonObject.get("message")), "123456781234567812345678aaa", "3213abcd");
+        String message = DESUtil.decode(JSONUtil.toJsonStr(jsonObject.get("message")), "eswri4l4l7j3deed749kkymj", "3213abcd");
         System.out.println("====================下面===========");
         System.out.println(message);
         return ApiResult.ok(message);
