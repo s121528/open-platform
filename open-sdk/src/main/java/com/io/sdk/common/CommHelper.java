@@ -23,5 +23,4 @@ public class CommHelper {
             return RandomUtil.randomString(15);
         }
     }
-
 }
