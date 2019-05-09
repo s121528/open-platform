@@ -22,7 +22,7 @@ import java.util.Map;
 public class DESUtil {
     private static Map<String, String> keyMap = new HashMap<>();  //用于封装随机产生的公钥与私钥
     // 密钥 ,至少24位
-    private final static String secretKey = "eswri4l4l7j3deed749kkymj";
+    private final static String secretKey = "tjhj0xtvaqjicdu9os2agyu8";
     // 向量 8位
     private final static String iv = "3213abcd";
     // 加解密统一使用的编码方式
@@ -65,5 +65,11 @@ public class DESUtil {
         cipher.init(Cipher.DECRYPT_MODE, deskey, ips);
         byte[] decryptData = cipher.doFinal(Base64.decode(encryptText));
         return new String(decryptData, encoding);
+    }
+
+    public static void main(String[] args) throws Exception {
+        //
+        String decode = DESUtil.decode("qxK3k+qRygTKm66EjGAzESHtDFQ+fhri6Zei0F3J3Wl/h64Lo4XsJVvb6VIJpFxc", secretKey, iv);
+        System.out.println(decode);
     }
 }

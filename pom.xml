@@ -34,6 +34,7 @@
         <module>open-nacos</module>
         <!-- 开放SDK -->
         <module>open-sdk</module>
+        <!-- 测试SDK -->
         <module>demo</module>
     </modules>
 
