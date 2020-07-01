@@ -47,7 +47,7 @@
         <!-- 跳过单元测试 -->
         <skipTests>true</skipTests>
         <druid.version>1.1.13</druid.version>
-        <mysql.version>5.1.47</mysql.version>
+        <mysql.version>8.0.16</mysql.version>
         <mssql.version>4.0</mssql.version>
         <oracle.version>11.2.0.3</oracle.version>
         <lombok.version>1.18.4</lombok.version>
