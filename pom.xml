@@ -56,7 +56,7 @@
         <swaggerui.version>1.8.1</swaggerui.version>
         <jjwt.version>0.4</jjwt.version>
         <commons.lang.version>2.6</commons.lang.version>
-        <commons.io.version>2.5</commons.io.version>
+        <commons.io.version>2.7</commons.io.version>
         <commons.configuration.version>1.10</commons.configuration.version>
         <commons.codec.version>1.10</commons.codec.version>
         <velocity.version>1.7</velocity.version>
